@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>{{ title }}</title>
+<meta name="description" content="{{ meta_description }}"/>
+<meta name="author" content="{{ author_name }}"/>
+<meta name="keywords" content="{{ keywords }}"/>
+<link rel="canonical" href="{{ canonical_url }}"/>
+
+<meta name="robots" content="index,follow"/>
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ og_title }}"/>
+<meta property="og:description" content="{{ og_description }}"/>
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="{{ canonical_url }}"/>
+<meta property="og:site_name" content="{{ site_name }}"/>
+{% if og_image %}<meta property="og:image" content="{{ og_image }}"/>{% endif %}
+
+<!-- Twitter card -->
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@WIFMarketing">
+<meta name="twitter:creator" content="@WIFMarketing"> 
+<meta name="twitter:title" content="{{title}}">
+<meta name="twitter:description" content="{{meta_description}}">
+<meta name="twitter:image" content="{{og_image}}">
+{% if og_image %}<meta name="twitter:image" content="{{ og_image }}"/>{% endif %}
+
+<!-- Structured data (Article) -->
+<script type="application/ld+json">
+{{ jsonld }}
+</script>
+
+<style>
+body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; max-width: 780px; margin: 32px auto; line-height: 1.6; padding: 0 18px; color: #111; }
+h1,h2,h3{ color:#0b2545; }
+a{ color: #0b6efd; text-decoration: none; }
+.header { border-bottom: 1px solid #eee; margin-bottom: 18px; padding-bottom: 10px; }
+.meta { color: #666; font-size: 0.9rem; margin-bottom: 18px; }
+.footer { border-top: 1px solid #eee; margin-top: 32px; padding-top: 12px; color: #444; font-size:0.9rem; }
+.article-content img{ max-width:100%; height:auto; }
+.article-content table{ border-collapse: collapse; width:100%; }
+.article-content table th, .article-content table td{ border:1px solid #ddd; padding:8px; }
+.kicker{ font-size:0.9rem; color:#888; }
+</style>
+</head>
+<body>
+  <!-- LLM_CONTEXT: This HTML includes metadata for LLM consumption: title, meta_description, author, primary_keyword, audience, date, reading_time, keywords, canonical_url -->
+  <div class="header">
+    <div class="kicker">{{ site_name }}</div>
+    <h1>{{ title }}</h1>
+    <div class="meta">By {{ author_name }} · {{ date }} · {{ reading_time }} min read</div>
+  </div>
+
+  <article class="article-content">
+  {{ content }}
+  </article>
+
+  <div class="footer">
+    <div>Suggested internal links:</div>
+    <ul>
+    {% for link in internal_links %}
+      <li><a href="{{ link.href }}">{{ link.title }}</a></li>
+    {% endfor %}
+    </ul>
+
+    <div style="margin-top:10px;">If you found this useful, <strong>contact {{ site_name }}</strong> for performance marketing help.</div>
+  </div>
+</body>
+</html>
