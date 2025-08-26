@@ -1,0 +1,18 @@
+defaults:
+  author_name: "WIF Marketing"
+  author_title: "Performance Marketing Agency"
+  audience: "B2B founders, CMOs, and performance marketers"
+  year: 2025
+  primary_keyword: "performance marketing"
+  company_name: "WIF Marketing"
+paths:
+  output_dir: "output"
+  structure_path: "templates/blog_structure.txt"
+model:
+  provider: "openrouter"
+  name: "meta-llama/llama-3.3-8b-instruct:free"
+  api_base: "https://openrouter.ai/api/v1/chat/completions"
+  key_env: "OPENROUTER_API_KEY"
+seo:
+  title_min: 45
+  title_max: 62

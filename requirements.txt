@@ -1,0 +1,13 @@
+jinja2
+pyyaml
+python-slugify
+requests
+streamlit
+markdown-it-py
+tomli; python_version < '3.11'
+
+markdown
+beautifulsoup4
+scikit-learn
+pandas
+python-dateutil
